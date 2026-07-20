@@ -1,16 +1,19 @@
-import {Navbar} from "../src/components/index"
-import { Outlet } from 'react-router'
-import './App.css'
+import { Navbar } from "../src/components/index";
+import { Outlet } from "react-router";
+import "./App.css";
 
 function App() {
-  return(
-    <div>
-      <Navbar/>
-      <main>
-        <Outlet/>
-      </main>
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="max-w-7xl w-full">
+        <Navbar />
+        <main>
+          <Outlet />
+        </main>
+        {/* footer */}
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
