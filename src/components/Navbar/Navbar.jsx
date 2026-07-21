@@ -9,7 +9,7 @@ export default function Navbar() {
   const navItems = [
     {
       label: "About Us",
-      path: "/",
+      path: "about-us",
     },
     {
       label: "Our Services",
@@ -17,7 +17,7 @@ export default function Navbar() {
     },
     {
       label: "Contact Us",
-      path: "3",
+      path: "contact-us",
     },
   ];
 
