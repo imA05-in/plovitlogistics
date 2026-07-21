@@ -3,6 +3,7 @@ import logo from "../../assets/logo/logo.png";
 import { useState } from "react";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import { menuOpen, menuClose } from "../../assets/icons/icons";
+import AnchorBtn from "../Button/AnchorBtn";
 
 export default function Navbar() {
   const navItems = [
@@ -44,13 +45,22 @@ export default function Navbar() {
               {item.label}
             </NavLink>
           ))}
+          <div>
+            <AnchorBtn label={'Get a Quote'} href={`tel:9315111174`}/>
+          </div>
         </div>
 
         {/* Mobile Nav */}
         <div className="md:hidden flex" onClick={ShowMobMenu}>
           {mobMenu === false ? <div> <img className="w-10" src={menuOpen} /> </div> : <div> <img className="w-6" src={menuClose} /> </div>
           }
+          <div>
+            <AnchorBtn label={'Get a Quote'}/>
+          </div>
         </div>
+
+          
+
       </div>
 
       <div>
