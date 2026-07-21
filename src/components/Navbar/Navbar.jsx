@@ -19,7 +19,7 @@ export default function Navbar(){
     ]
 
     return(
-        <header className="border-[#fffdfb] border-b flex justify-between items-center px-2 sticky top-0">
+        <header className="border-[#fffdfb] border-b flex justify-between items-center px-2 sticky top-0 bg-white">
             <NavLink className=""
             to={`/`}
             >
