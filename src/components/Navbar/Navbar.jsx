@@ -10,7 +10,7 @@ export default function Navbar(){
         },
         {
             label : "Our Services",
-            path: "2"
+            path: "our-services"
         },
         {
             label : "Contact Us",
@@ -19,13 +19,13 @@ export default function Navbar(){
     ]
 
     return(
-        <header className="border flex justify-between items-center px-2 sticky top-0">
+        <header className="border-[#fffdfb] border-b flex justify-between items-center px-2 sticky top-0">
             <NavLink className=""
             to={`/`}
             >
                 <img src={logo} alt="" className="h-20"/>
             </NavLink>
-            <div className="flex gap-15">
+            <div className="flex gap-15 font-medium">
                 {navItems.map((item)=>(
                     <NavLink 
                     key={item.label}
