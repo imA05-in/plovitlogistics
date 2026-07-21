@@ -4,13 +4,13 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="max-w-7xl w-full">
+    <div className="w-full flex flex-col items-center px-1">
+      <div className="max-w-7xl w-full ">
         <Navbar />
         <main>
           <Outlet />
         </main>
-        {/* footer */}
+        footer
       </div>
     </div>
   );
