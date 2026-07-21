@@ -1,41 +1,73 @@
-import { NavLink } from "react-router"
-import logo from "../../assets/logo/logo.png"
+import { NavLink } from "react-router";
+import logo from "../../assets/logo/logo.png";
+import { useState } from "react";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+import { menuOpen, menuClose } from "../../assets/icons/icons";
 
-export default function Navbar(){
+export default function Navbar() {
+  const navItems = [
+    {
+      label: "About Us",
+      path: "/",
+    },
+    {
+      label: "Our Services",
+      path: "our-services",
+    },
+    {
+      label: "Contact Us",
+      path: "3",
+    },
+  ];
 
-    const navItems = [
-        {
-            label : "About Us",
-            path: "/"
-        },
-        {
-            label : "Our Services",
-            path: "our-services"
-        },
-        {
-            label : "Contact Us",
-            path: "3"
-        },
-    ]
+  const [mobMenu, setMobMenu] = useState(false);
+  const ShowMobMenu = () => {
+    setMobMenu((prev) => !prev);
+    console.log(mobMenu);
+  };
 
-    return(
-        <header className="border-[#fffdfb] border-b flex justify-between items-center px-2 sticky top-0 bg-white">
-            <NavLink className=""
-            to={`/`}
+  return (
+    <header className="sticky top-0">
+      <div className="border-b border-[#fffdfb]  flex justify-between items-center px-2">
+        <NavLink className="" to={`/`}>
+          <img src={logo} alt="" className="h-20" />
+        </NavLink>
+
+        {/* Desktop Nav */}
+        <div className="gap-15 font-medium hidden md:flex">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.label}
+              to={item.path}
+              className={({ isActive }) => `${isActive ? "border-b" : ""}`}
             >
-                <img src={logo} alt="" className="h-20"/>
+              {item.label}
             </NavLink>
-            <div className="flex gap-15 font-medium">
-                {navItems.map((item)=>(
-                    <NavLink 
-                    key={item.label}
-                    to={item.path}
-                    className={({isActive})=>`${isActive ? "border-b" : ""}`}
-                    >
-                        {item.label}
-                    </NavLink>
-                ))}
-            </div>
-        </header>
-    )
+          ))}
+        </div>
+
+        {/* Mobile Nav */}
+        <div className="md:hidden flex" onClick={ShowMobMenu}>
+          {mobMenu === false ? <div> <img className="w-10" src={menuOpen} /> </div> : <div> <img className="w-6" src={menuClose} /> </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        {mobMenu === true ? (
+          <div className="flex flex-col gap-3 items-end px-1">
+            {navItems.map((item) => (
+              <NavLink key={item.label} to={item.path}
+              onClick={()=>setMobMenu(false)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    </header>
+  );
 }
