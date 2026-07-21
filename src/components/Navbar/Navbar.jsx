@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 bg-white">
       <div className="border-b border-[#fffdfb]  flex justify-between items-center px-2">
         <NavLink className="" to={`/`}>
           <img src={logo} alt="" className="h-20" />
